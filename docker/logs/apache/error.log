@@ -10,3 +10,9 @@ AH00558: apache2: Could not reliably determine the server's fully qualified doma
 AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.27.0.21. Set the 'ServerName' directive globally to suppress this message
 [Thu Jan 25 13:11:00.681088 2018] [mpm_event:notice] [pid 17:tid 140296236012736] AH00489: Apache/2.4.25 (Debian) OpenSSL/1.0.2l configured -- resuming normal operations
 [Thu Jan 25 13:11:00.681547 2018] [core:notice] [pid 17:tid 140296236012736] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.27.0.21. Set the 'ServerName' directive globally to suppress this message
+[Thu Jan 25 15:48:24.362134 2018] [mpm_event:notice] [pid 17:tid 140452600755392] AH00489: Apache/2.4.25 (Debian) OpenSSL/1.0.2l configured -- resuming normal operations
+[Thu Jan 25 15:48:24.362455 2018] [core:notice] [pid 17:tid 140452600755392] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.27.0.21. Set the 'ServerName' directive globally to suppress this message
+[Thu Jan 25 16:02:05.727753 2018] [mpm_event:notice] [pid 19:tid 140366327653568] AH00489: Apache/2.4.25 (Debian) OpenSSL/1.0.2l configured -- resuming normal operations
+[Thu Jan 25 16:02:05.728665 2018] [core:notice] [pid 19:tid 140366327653568] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'

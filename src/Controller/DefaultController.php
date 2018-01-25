@@ -45,10 +45,11 @@ class DefaultController extends Controller
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @param \Doctrine\ORM\EntityManagerInterface      $entityManager
+     * @param \Swift_Mailer                             $mailer
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function postContactAction(Request $request, EntityManagerInterface $entityManager)
+    public function postContactAction(Request $request, EntityManagerInterface $entityManager, \Swift_Mailer $mailer)
     {
         $form = $this->createForm(
             ContactType::class,
@@ -64,6 +65,21 @@ class DefaultController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($contact);
             $entityManager->flush();
+
+            $message = (new \Swift_Message('Hello Email'))
+                ->setReplyTo('developers@merces-lab.com')
+                ->setFrom($contact->getEmail())
+                ->setTo('developers@merces-lab.com')
+                ->setSubject($contact->getSubject())
+                ->setBody(
+                    $this->renderView(
+                        'email/contact.html.twig',
+                        ['contact' => $contact]
+                    ),
+                    'text/html'
+                )
+            ;
+            $mailer->send($message);
 
             return new JsonResponse(
                 [

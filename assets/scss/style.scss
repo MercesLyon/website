@@ -1,3 +1,5 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
 $primary-color: #f05f40;
 $primary-strong-color: #c93110;
 $secondary-color: #e13612;
@@ -78,12 +80,20 @@ section {
       color: rgba(255, 255, 255, .7);
     }
 
+    .navbar-nav > li.nav-item > a.nav-link:hover, .navbar-nav > li.nav-item > a.nav-link:hover {
+      color: $secondary-color;
+    }
+
     &.navbar-shrink {
       border-color: rgba(34, 34, 34, .05);
       background-color: #fff;
 
       .navbar-nav > li.nav-item > a.nav-link, .navbar-nav > li.nav-item > a.nav-link:focus {
         color: #222;
+      }
+
+      .navbar-nav > li.nav-item > a.nav-link:hover, .navbar-nav > li.nav-item > a.nav-link:hover {
+        color: $secondary-color;
       }
 
       .navbar-brand {
@@ -203,5 +213,17 @@ header.header-main {
 
   .container {
     max-width: 720px;
+  }
+}
+.form-errors {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+
+    li {
+      color: theme-color("danger");
+      font-size: 0.8em;
+    }
   }
 }

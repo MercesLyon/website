@@ -7,8 +7,12 @@ Encore
     .enableSourceMaps(!Encore.isProduction())
     .addEntry('scripts', './assets/js/script.js')
     .addStyleEntry('styles', './assets/scss/style.scss')
+    .createSharedEntry('vendor', [
+        'bootstrap'
+    ])
     .enableSassLoader()
     .autoProvidejQuery()
+    .autoProvideVariables({'Popper': ['popper.js', 'default']})
     .enableSourceMaps(!Encore.isProduction())
     .configureBabel(function (babelConfig) {
         babelConfig.presets.push('es2015')

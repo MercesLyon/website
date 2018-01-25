@@ -10,13 +10,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">Nous connaître</a>
+                        <a class="nav-link slide-link" href="#about">Nous connaître</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Nos services</a>
+                        <a class="nav-link slide-link" href="#services">Nos services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Nous contacter</a>
+                        <a class="nav-link slide-link" href="#contact">Nous contacter</a>
                     </li>
                 </ul>
             </div>
@@ -29,7 +29,7 @@
                     <h1>Merces</h1>
                     <hr/>
                     <p>Faites appel à une équipe de développeurs expérimentés</p>
-                    <a class="btn btn-primary btn-xl" href="#about">En savoir plus</a>
+                    <a class="btn btn-primary btn-xl slide-link" href="#about">En savoir plus</a>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
                     <h2 class="section-heading text-white">Des experts pour vos projets Symfony</h2>
                     <hr class="light"/>
                     <p class="text-faded">Nous mettons à disposition une équipe prête à répondre à vos problématiques</p>
-                    <a class="btn btn-default btn-xl" href="#services">Nos services</a>
+                    <a class="btn btn-default btn-xl slide-link" href="#services">Nos services</a>
                 </div>
             </div>
         </div>
@@ -91,7 +91,7 @@
     <div id="contact" class="call-to-action bg-dark">
         <div class="container text-center">
             <h2>Demandez un devis !</h2>
-            <button class="btn-quote btn btn-primary btn-xl sr-button">Go !</button>
+            <a href="#" class="btn-contact btn btn-primary btn-xl sr-button" data-toggle="modal" data-target="#modal-contact">Go !</a>
             <div class="row">
                 <div class="col-md-12">
                     
@@ -118,4 +118,11 @@
             </div>
         </div>
     </section>
+    <div id="modal-contact" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                {% include 'contact.html.twig' %}
+            </div>
+        </div>
+    </div>
 {% endblock %}

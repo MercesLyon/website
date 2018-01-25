@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @package App\Entity
  *
  * @ORM\Entity()
+ * @ORM\HasLifecycleCallbacks()
  */
 class Contact
 {
@@ -26,15 +27,9 @@ class Contact
      * @var string|null
      *
      * @ORM\Column(type="string", nullable=true)
+     * @Assert\NotBlank()
      */
-    private $firstName;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $lastName;
+    private $name;
 
     /**
      * @var string|null
@@ -62,6 +57,13 @@ class Contact
     private $message;
 
     /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -84,39 +86,19 @@ class Contact
     /**
      * @return null|string
      */
-    public function getFirstName(): ?string
+    public function getName(): ?string
     {
-        return $this->firstName;
+        return $this->name;
     }
 
     /**
-     * @param null|string $firstName
+     * @param null|string $name
      *
      * @return $this
      */
-    public function setFirstName($firstName)
+    public function setName($name)
     {
-        $this->firstName = $firstName;
-
-        return $this;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getLastName(): ?string
-    {
-        return $this->lastName;
-    }
-
-    /**
-     * @param null|string $lastName
-     *
-     * @return $this
-     */
-    public function setLastName($lastName)
-    {
-        $this->lastName = $lastName;
+        $this->name = $name;
 
         return $this;
     }
@@ -179,5 +161,31 @@ class Contact
         $this->message = $message;
 
         return $this;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getCreatedAt(): ?\DateTime
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param \DateTime|null $createdAt
+     *
+     * @return $this
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /** @ORM\PrePersist() */
+    public function prePersist()
+    {
+        $this->createdAt = new \DateTime();
     }
 }

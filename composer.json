@@ -6,6 +6,7 @@
         "ext-iconv": "*",
         "javiereguiluz/easyadmin-bundle": "^1.17",
         "symfony/console": "^4.0",
+        "symfony/expression-language": "^4.0",
         "symfony/flex": "^1.0",
         "symfony/framework-bundle": "^4.0",
         "symfony/lts": "^4@dev",
@@ -14,7 +15,8 @@
         "symfony/yaml": "^4.0"
     },
     "require-dev": {
-        "symfony/dotenv": "^4.0"
+        "symfony/dotenv": "^4.0",
+        "symfony/profiler-pack": "^1.0"
     },
     "config": {
         "preferred-install": {

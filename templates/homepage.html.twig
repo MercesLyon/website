@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <nav class="navbar navbar-expand-lg fixed-top" id="main-nav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top">Merces</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Nous connaître</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Nos services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Nous contacter</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header id="page-top" class="header-main">
+        <div class="header-layer">
+            <div class="header-content">
+                <div class="header-content-inner">
+                    <h1>Merces</h1>
+                    <hr/>
+                    <p>Faites appel à une équipe de développeurs expérimentés</p>
+                    <a class="btn btn-primary btn-xl" href="#about">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="about" class="bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-heading text-white">Des experts pour vos projets Symfony</h2>
+                    <hr class="light"/>
+                    <p class="text-faded">Nous mettons à disposition une équipe prête à répondre à vos problématiques</p>
+                    <a class="btn btn-default btn-xl" href="#services">Nos services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">A votre service</h2>
+                    <hr class="primary"/>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
+                        <h3>Qualité</h3>
+                        <p class="text-muted">Le respect des standards rend le code plus facilement reprenable et maintenable</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
+                        <h3>Tests</h3>
+                        <p class="text-muted">Des tests unitaires et fonctionnels assurent le bon déroulement du projet</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
+                        <h3>Foo</h3>
+                        <p class="text-muted">Des trucs</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
+                        <h3>Bar</h3>
+                        <p class="text-muted">On est trop forts</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="contact" class="call-to-action bg-dark">
+        <div class="container text-center">
+            <h2>Demandez un devis !</h2>
+            <button class="btn-quote btn btn-primary btn-xl sr-button">Go !</button>
+            <div class="row">
+                <div class="col-md-12">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-heading">Contactez-nous !</h2>
+                    <hr class="primary"/>
+                    <p>Vous avez des projets web mais trop peu de développeurs pour les réaliser ? N'hésitez pas à nous en parler par mail !</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 mr-auto text-center">
+                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+                    <p>
+                        <a href="mailto:developers@merces.fr">developers@merces.fr</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

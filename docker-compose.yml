@@ -1,0 +1,79 @@
+version: "2"
+
+volumes:
+  cache:
+
+services:
+    application:
+        build: docker/containers/application
+        volumes:
+            - ./:/var/www/symfony
+            - cache:/var/www/symfony/var/cache
+        tty: true
+        networks:
+            default: ~
+
+    php:
+        build: docker/containers/php
+        env_file:
+            - .env
+        environment:
+            XDEBUG_CONFIG: remote_host=${HOSTNAME}
+        volumes_from:
+            - application
+        links:
+            - mysql:mysql
+        working_dir: /var/www/symfony
+        networks:
+            default: ~
+        extra_hosts:
+            - '${HOSTNAME}:172.${IP_ADDR}.0.21'
+
+    apache:
+        build: docker/containers/apache
+        env_file:
+            - .env
+        links:
+            - php:php
+        volumes_from:
+            - application
+        volumes:
+            - ./docker/logs/apache/:/var/log/apache2
+        networks:
+            default:
+                ipv4_address: 172.${IP_ADDR}.0.21
+
+    mysql:
+        build: docker/containers/mysql
+        restart: always
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_PASSWORD=root
+            - MYSQL_USER=root
+            - MYSQL_DATABASE=${MYSQL_DATABASE}
+        networks:
+            default:
+                ipv4_address: 172.${IP_ADDR}.0.22
+
+    node:
+        build:
+            context: docker/containers/node
+            args:
+                uid: ${WWWDATA_UID}
+        environment:
+            - NODE_ENV=dev
+            - NPM_CONFIG_PREFIX=/var/www/symfony/var/cache/.npm-global
+        volumes_from:
+            - application
+        networks:
+            default:
+                ipv4_address: 172.${IP_ADDR}.0.25
+        working_dir: /var/www/symfony
+
+networks:
+    default:
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 172.${IP_ADDR}.0.0/16
+                  gateway: 172.${IP_ADDR}.0.1

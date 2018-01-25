@@ -1,0 +1,18 @@
+{
+  "buildpacks": [
+    {
+      "url": "heroku/php"
+    },
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "addons":[
+    "cleardb:ignite"
+  ],
+  "env": {
+    "SECRET": {
+      "generator": "secret"
+    }
+  }
+}

@@ -1,9 +1,14 @@
-@import "../../node_modules/bootstrap/scss/bootstrap";
-
-$primary-color: #f05f40;
+$primary-color: #f15a24;
 $primary-strong-color: #c93110;
-$secondary-color: #e13612;
+$secondary-color: #003a5c;
 $secondary-strong-color: #a4270d;
+
+$theme-colors: (
+  primary: $primary-color,
+  secondary: $secondary-color
+);
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
 
 body, html {
   width: 100%;
@@ -44,7 +49,16 @@ section {
 }
 
 .bg-primary {
-  background-color: $primary-color!important;
+  background-color: $primary-color !important;
+
+  a:not(.btn) {
+    color: white;
+    font-weight: bold;
+  }
+}
+
+.bg-secondary {
+  background-color: $secondary-color !important;
 
   a:not(.btn) {
     color: white;
@@ -54,7 +68,7 @@ section {
 
 .bg-dark {
   color: #fff;
-  background-color: #222!important;
+  background-color: #222 !important;
 }
 
 .text-faded {
@@ -62,7 +76,7 @@ section {
 }
 
 .text-primary {
-  color: $primary-color!important;
+  color: $primary-color !important;
 }
 
 .hidden {
@@ -113,7 +127,7 @@ section {
 
       .navbar-brand {
         font-size: 16px;
-        color: #f05f40;
+        color: $secondary-color;
       }
     }
   }
@@ -203,15 +217,19 @@ header.header-main {
   }
 }
 
-.btn-primary, .open>.btn-primary.dropdown-toggle {
+.btn-primary, .open > .btn-primary.dropdown-toggle {
   color: #fff;
-  border-color: $secondary-color;
-  background-color: $primary-color;
 
   &:hover, &:active, &:focus {
     color: #fff;
-    border-color: $secondary-strong-color;
-    background-color: $primary-strong-color;
+  }
+}
+
+.btn-secondary, .open > .btn-secondary.dropdown-toggle {
+  color: #fff;
+
+  &:hover, &:active, &:focus {
+    color: #fff;
   }
 }
 
@@ -230,6 +248,7 @@ header.header-main {
     max-width: 720px;
   }
 }
+
 .form-errors {
   ul {
     list-style: none;

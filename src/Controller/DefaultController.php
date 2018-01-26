@@ -67,10 +67,10 @@ class DefaultController extends Controller
             $entityManager->flush();
 
             $message = (new \Swift_Message('Hello Email'))
-                ->setReplyTo('developers@merces-lab.com')
+                ->setReplyTo('contact@merces-lab.com')
                 ->setFrom($contact->getEmail())
-                ->setTo('developers@merces-lab.com')
-                ->setSubject($contact->getSubject())
+                ->setTo('contact@merces-lab.com')
+                ->setSubject('Website contact - '.$contact->getSubject())
                 ->setBody(
                     $this->renderView(
                         'email/contact.html.twig',

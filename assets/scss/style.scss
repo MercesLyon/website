@@ -11,6 +11,16 @@ body, html {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 hr {
   max-width: 50px;
   border: 2px solid $primary-color;
@@ -35,6 +45,11 @@ section {
 
 .bg-primary {
   background-color: $primary-color!important;
+
+  a:not(.btn) {
+    color: white;
+    font-weight: bold;
+  }
 }
 
 .bg-dark {

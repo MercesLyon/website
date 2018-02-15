@@ -1,0 +1,63 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <header id="page-top" class="header-main header-team">
+        <div class="header-layer">
+            <div class="header-content">
+                <div class="header-content-inner">
+                    <h1>Notre équipe</h1>
+                    <hr/>
+                    <p>Des développeurs seniors experts en technologies web</p>
+                    <a class="btn btn-primary btn-xl slide-link" href="{{ url('team') }}#team-1">Découvrir</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    {%- for member in team %}
+        <section id="team-{{ member.id }}" class="team-section">
+            <div class="container">
+                <div class="team-presentation d-flex justify-content-around">
+                    <div class="team-content">
+                        <div class="team-head d-flex align-items-center">
+                            <h2 class="section-heading">{{ member.firstName }} {{ member.lastName }}</h2>
+                            {%- if member.twitter %}
+                                <a class="ml-2 team-twitter" href="{{ member.twitter }}" target="_blank"><i class="fa fa-2x fa-twitter-square text-secondary"></i></a>
+                            {%- endif %}
+                            {%- if member.linkedin %}
+                                <a class="ml-2 team-linkedin" href="{{ member.linkedin }}" target="_blank"><i class="fa fa-2x fa-linkedin-square text-secondary"></i></a>
+                            {%- endif %}
+                            {%- if member.github %}
+                                <a class="ml-2 team-github" href="{{ member.github }}" target="_blank"><i class="fa fa-2x fa-github-square text-secondary"></i></a>
+                            {%- endif %}
+                        </div>
+                        <p><span class="font-weight-bold text-primary">{{ member.jobTitle }}</span> <em>{{ member.experience }} ans d'expériences</em></p>
+                        <h3>Maîtrise</h3>
+                        <ul class="skills d-flex flex-wrap">
+                            {%- for skill in member.skills %}
+                                <li>{{ skill.name }}</li>
+                            {% endfor %}
+                        </ul>
+                        <h3>Certifications</h3>
+                        <ul class="certifications d-flex flex-wrap">
+                            {%- for certification in member.certifications %}
+                                <li>{{ certification.name }}</li>
+                            {% endfor %}
+                        </ul>
+                        <h3>Références</h3>
+                        <ul class="references d-flex flex-column">
+                        {%- for reference in member.references %}
+                            <li>- <a href="{{ reference.link }}" target="_blank">{{ reference.name }}</a> chez {{ reference.doneAt }}</li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="team-picture">
+                        <img src="{{ vich_uploader_asset(member, 'pictureFile') }}" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        {%- if not loop.last %}
+            <hr class="team" />
+        {%- endif %}
+    {%- endfor %}
+{% endblock %}

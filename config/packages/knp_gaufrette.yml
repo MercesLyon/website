@@ -1,0 +1,14 @@
+knp_gaufrette:
+    stream_wrapper: ~
+
+    adapters:
+        team_picture:
+            aws_s3:
+                service_id: s3Client
+                bucket_name: '%env(AWS_BUCKET)%'
+                options:
+                    directory: team
+
+    filesystems:
+        team_picture_fs:
+            adapter: team_picture

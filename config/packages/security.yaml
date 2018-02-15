@@ -1,20 +1,37 @@
 security:
-    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    encoders:
+        App\Entity\Admin\User:
+            algorithm:            pbkdf2
+            hash_algorithm:       sha512
+            encode_as_base64:     true
+            iterations:           1000
     providers:
-        in_memory: { memory: ~ }
+        admin:
+            entity:
+                class: App\Entity\Admin\User
+                property: email
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+        admin:
+            pattern: ^/admin
+            provider: admin
+            anonymous: ~
+            logout:
+                path:   /admin/logout
+                target: /admin/login
+            form_login:
+                login_path: /admin/login
+                check_path: /admin/login
+            guard:
+                authenticators:
+                    - App\Security\AdminAuthenticator
+            logout_on_user_change: true
         main:
             anonymous: ~
-
-            # activate different ways to authenticate
-
-            # http_basic: ~
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-
-            # form_login: ~
-            # https://symfony.com/doc/current/security/form_login_setup.html
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER
     access_control:
+        - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin, roles: ROLE_ADMIN }

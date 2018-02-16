@@ -33,6 +33,10 @@ hr {
   &.light {
     border-color: #fff;
   }
+
+  &.team {
+    max-width: 400px;
+  }
 }
 
 a {
@@ -140,6 +144,11 @@ header.header-main {
   color: #fff;
   background: url(../images/header.jpeg) center;
   background-size: cover;
+
+  &.header-team {
+    background: url(../images/team.jpg) center;
+    background-size: cover;
+  }
 
   .header-layer {
     width: 100%;
@@ -258,6 +267,59 @@ header.header-main {
     li {
       color: theme-color("danger");
       font-size: 0.8em;
+    }
+  }
+}
+
+section.team-section {
+  &:nth-of-type(even) {
+    .team-presentation {
+      flex-direction: row-reverse;
+    }
+
+    .team-picture {
+      margin-left: 0;
+      margin-right: 30px;
+    }
+  }
+
+  .team-content {
+    max-width: 500px;
+
+    .job-title {
+      color: $primary-color;
+      font-weight: bold;
+    }
+
+    ul {
+      list-style-type: none;
+
+      &.skills, &.certifications {
+        li {
+          background-color: $primary-color;
+          color: white;
+          padding: 3px 8px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          border-radius: 15px;
+        }
+      }
+
+      &.certifications {
+        li {
+          background-color: $secondary-color;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .team-picture {
+    margin-left: 30px;
+
+    img {
+      width: 400px;
+      border-radius: 50%;
     }
   }
 }

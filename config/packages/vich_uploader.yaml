@@ -1,0 +1,9 @@
+vich_uploader:
+    db_driver: orm
+    storage: gaufrette
+
+    mappings:
+        team_pictures:
+            uri_prefix: 'https://s3.%env(AWS_REGION)%.amazonaws.com/%env(AWS_BUCKET)%/team'
+            upload_destination: team_picture_fs
+            namer: vich_uploader.namer_uniqid

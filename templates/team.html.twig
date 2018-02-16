@@ -31,24 +31,30 @@
                             {%- endif %}
                         </div>
                         <p><span class="font-weight-bold text-primary">{{ member.jobTitle }}</span> <em>{{ member.experience }} ans d'expériences</em></p>
+                        {% if member.skills %}
                         <h3>Maîtrise</h3>
                         <ul class="skills d-flex flex-wrap">
                             {%- for skill in member.skills %}
                                 <li>{{ skill.name }}</li>
                             {% endfor %}
                         </ul>
+                        {% endif %}
+                        {% if member.certifications %}
                         <h3>Certifications</h3>
                         <ul class="certifications d-flex flex-wrap">
                             {%- for certification in member.certifications %}
                                 <li>{{ certification.name }}</li>
                             {% endfor %}
                         </ul>
+                        {% endif %}
+                        {% if member.references %}
                         <h3>Références</h3>
                         <ul class="references d-flex flex-column">
                         {%- for reference in member.references %}
                             <li>- <a href="{{ reference.link }}" target="_blank">{{ reference.name }}</a> chez {{ reference.doneAt }}</li>
                         {% endfor %}
                         </ul>
+                        {% endif %}
                     </div>
                     <div class="team-picture">
                         <img src="{{ vich_uploader_asset(member, 'pictureFile') }}" />

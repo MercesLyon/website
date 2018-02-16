@@ -15,7 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Contact
 {
     /**
-     * @var int
+     * @var int|null
      *
      * @ORM\Column(type="integer")
      * @ORM\Id
@@ -64,9 +64,9 @@ class Contact
     private $createdAt;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }

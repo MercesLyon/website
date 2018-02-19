@@ -31,7 +31,7 @@
                             {%- endif %}
                         </div>
                         <p><span class="font-weight-bold text-primary">{{ member.jobTitle }}</span> <em>{{ member.experience }} ans d'expériences</em></p>
-                        {% if member.skills %}
+                        {% if member.skills|length %}
                         <h3>Maîtrise</h3>
                         <ul class="skills d-flex flex-wrap">
                             {%- for skill in member.skills %}
@@ -39,7 +39,7 @@
                             {% endfor %}
                         </ul>
                         {% endif %}
-                        {% if member.certifications %}
+                        {% if member.certifications|length %}
                         <h3>Certifications</h3>
                         <ul class="certifications d-flex flex-wrap">
                             {%- for certification in member.certifications %}
@@ -47,7 +47,7 @@
                             {% endfor %}
                         </ul>
                         {% endif %}
-                        {% if member.references %}
+                        {% if member.references|length %}
                         <h3>Références</h3>
                         <ul class="references d-flex flex-column">
                         {%- for reference in member.references %}

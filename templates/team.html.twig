@@ -39,7 +39,7 @@
                             {% endfor %}
                         </ul>
                         {% endif %}
-                        {% if member.certifications %}
+                        {% if member.certifications and member.certifications|length %}
                         <h3>Certifications</h3>
                         <ul class="certifications d-flex flex-wrap">
                             {%- for certification in member.certifications %}
@@ -47,7 +47,7 @@
                             {% endfor %}
                         </ul>
                         {% endif %}
-                        {% if member.references %}
+                        {% if member.references and member.references|length %}
                         <h3>Références</h3>
                         <ul class="references d-flex flex-column">
                         {%- for reference in member.references %}

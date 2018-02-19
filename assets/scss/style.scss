@@ -35,7 +35,9 @@ hr {
   }
 
   &.team {
-    max-width: 400px;
+    max-width: 100%;
+    border: none;
+    border-top: 1px solid $primary-color;
   }
 }
 
@@ -271,7 +273,7 @@ header.header-main {
   }
 }
 
-section.team-section {
+article.team-article {
   &:nth-of-type(even) {
     .team-presentation {
       flex-direction: row-reverse;

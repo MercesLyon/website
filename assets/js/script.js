@@ -14,11 +14,12 @@ $('#modal-contact').on('submit', 'form', (event) => {
 })
 
 $('.slide-link').on('click', (event) => {
-    event.preventDefault();
+    const scrollTo = $($(event.currentTarget).data('scroll'))
 
-    const scrollTo = $(event.currentTarget).attr('href')
-
-    $('html, body').animate({scrollTop: $(scrollTo).offset().top}, 'slow')
+    if (scrollTo.length) {
+        event.preventDefault();
+        $('html, body').animate({scrollTop: $(scrollTo).offset().top}, 'slow')
+    }
 })
 
 window.addEventListener('scroll', () => {

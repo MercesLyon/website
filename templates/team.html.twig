@@ -8,17 +8,17 @@
                     <h1>Notre équipe</h1>
                     <hr/>
                     <p>Des développeurs seniors experts en technologies web</p>
-                    <a class="btn btn-primary btn-xl slide-link" href="#team-section">Découvrir</a>
+                    <a class="btn btn-primary btn-xl slide-link" href="{{ url('team') }}#team-section" data-scroll="#team-section">Découvrir</a>
                 </div>
             </div>
         </div>
     </header>
-    <section>
+    <section class="container">
         <a id="team-section"></a>
     {%- for member in team %}
         <article id="team-{{ member.id }}" class="team-article">
             <div class="container">
-                <div class="team-presentation d-flex justify-content-around">
+                <div class="team-presentation d-flex justify-content-around align-items-center">
                     <div class="team-content">
                         <div class="team-head d-flex align-items-center">
                             <h2 class="section-heading">{{ member.firstName }} {{ member.lastName }}</h2>

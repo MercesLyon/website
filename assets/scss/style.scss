@@ -311,6 +311,11 @@ article.team-article {
           margin-right: 10px;
           margin-bottom: 10px;
           border-radius: 15px;
+          cursor: default;
+
+          &:hover {
+            background-color: darken($gray-500, 5%);
+          }
         }
       }
     }

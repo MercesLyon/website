@@ -13,10 +13,10 @@
             </div>
         </div>
     </header>
-    <section class="container">
+    <div class="container">
         <a id="team-section"></a>
     {%- for member in team %}
-        <article id="team-{{ member.id }}" class="team-article">
+        <div id="team-{{ member.id }}" class="team-article">
             <div class="container">
                 <div class="team-presentation d-flex justify-content-around align-items-center">
                     <div class="team-content">
@@ -63,10 +63,10 @@
                     </div>
                 </div>
             </div>
-        </article>
+        </div>
         {%- if not loop.last %}
             <hr class="team" />
         {%- endif %}
     {%- endfor %}
-    </section>
+    </div>
 {% endblock %}
